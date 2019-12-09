@@ -15,7 +15,7 @@
                     <asp:Button ID="Button1" runat="server" Height="59px" Text="Patient" Width="299px" PostBackUrl="~/Patient/PatentHome.aspx" />
 </p>
 <p class="auto-style2">
-                    <asp:Button ID="Button2" runat="server" Height="59px" Text="Doctor" Width="297px" />
+                    <asp:Button ID="Button2" runat="server" Height="59px" Text="Doctor" Width="297px" PostBackUrl="~/Doctor/DoctorHome.aspx" />
                 </p>
 <p>
 </p>

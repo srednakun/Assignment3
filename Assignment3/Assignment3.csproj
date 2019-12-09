@@ -83,6 +83,8 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="Doctor\DoctorEmail.aspx" />
+    <Content Include="Doctor\DoctorHome.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="HospitalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -122,6 +124,20 @@
     </Compile>
     <Compile Include="DoctorsTable.cs">
       <DependentUpon>HospitalModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorEmail.aspx.cs">
+      <DependentUpon>DoctorEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorEmail.aspx.designer.cs">
+      <DependentUpon>DoctorEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorHome.aspx.cs">
+      <DependentUpon>DoctorHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorHome.aspx.designer.cs">
+      <DependentUpon>DoctorHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DoctorHandler.ashx.cs">
       <DependentUpon>DoctorHandler.ashx</DependentUpon>
@@ -260,6 +276,7 @@
     </Content>
     <Content Include="Helpers\PatientHandler.ashx" />
     <Content Include="Helpers\DoctorHandler.ashx" />
+    <Content Include="Doctor\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -270,9 +287,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Doctor\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
