@@ -29,16 +29,16 @@
             color: #3399FF;
         }
         .auto-style8 {
-            width: 1174px;
+            width: 812px;
             font-size: large;
         }
         .auto-style9 {
-            width: 1174px;
+            width: 812px;
             font-size: large;
             color: #000000;
         }
         .auto-style10 {
-            width: 1174px;
+            width: 812px;
             font-size: large;
             height: 55px;
         }
@@ -67,7 +67,7 @@
             height: 17px;
         }
         .auto-style19 {
-            width: 1174px;
+            width: 812px;
             font-size: large;
             color: #000000;
             height: 17px;
@@ -77,7 +77,7 @@
             height: 17px;
         }
         .auto-style24 {
-            width: 1174px;
+            width: 812px;
             font-size: large;
             height: 3px;
         }
@@ -90,7 +90,7 @@
             height: 72px;
         }
         .auto-style27 {
-            width: 1174px;
+            width: 812px;
             font-size: large;
             height: 73px;
         }
@@ -103,7 +103,7 @@
             height: 73px;
         }
         .auto-style30 {
-            width: 1174px;
+            width: 812px;
             font-size: x-large;
             height: 72px;
         }
@@ -153,7 +153,7 @@
                     <td class="auto-style5"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style9"></td>
+                    <td class="auto-style9">&nbsp;</td>
                     <td class="auto-style14">&nbsp;</td>
                     <td class="auto-style5"></td>
                 </tr>
@@ -197,7 +197,9 @@
                     <td class="auto-style8">
                         <asp:TextBox ID="msgTxtBox" runat="server" CssClass="auto-style3" Height="286px" Width="375px"></asp:TextBox>
                     </td>
-                    <td class="auto-style1">&nbsp;</td>
+                    <td class="auto-style1"><strong>
+                        <asp:Label ID="notificationLbl" runat="server" Text="Notification" CssClass="auto-style5"></asp:Label>
+                        </strong></td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -205,8 +207,7 @@
                         <asp:Button ID="sendMsgBtn" runat="server" CssClass="auto-style4" Text="Send Message" Width="384px" OnClick="sendMsgBtn_Click" />
                     </td>
                     <td class="auto-style1">
-                        <asp:Label ID="notificationLbl" runat="server" Text="Label"></asp:Label>
-                    </td>
+                        &nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

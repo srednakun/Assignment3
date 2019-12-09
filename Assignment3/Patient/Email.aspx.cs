@@ -49,22 +49,25 @@ namespace Assignment3.Patient
                 string patientMsg = msgTxtBox.Text;
                 string msgTo = toDocLbl.Text;
                 string msgFrom = patientNameLbl.Text;
-                DateTime date = currentDate.Date;
 
-                //MessageTable message = new MessageTable();
-                //message.MessageTO = msgTo;
-                //message.MessageFROM = msgFrom;
-                //message.Date = date;
+                MessageTable message = new MessageTable();
+                message.MessageTO = msgTo;
+                message.MessageFROM = msgFrom;
+                message.Date = currentDate;
+                message.Message = patientMsg;
 
-                //dbcon.MessageTables.Add(message);
+                dbcon.MessageTables.Add(message);
 
-                //dbcon.SaveChanges();
+                dbcon.SaveChanges();
                 notificationLbl.Visible = true;
                 notificationLbl.ForeColor = System.Drawing.Color.Green;
                 notificationLbl.Text = "Your Message has been sent.";
+
+                msgTxtBox.Text = "";
             }
             catch (Exception error)
             {
+                notificationLbl.Visible = true;
                 notificationLbl.ForeColor = System.Drawing.Color.Red;
                 notificationLbl.Text = "Something went wrong! Please enter in all information.";
             }
