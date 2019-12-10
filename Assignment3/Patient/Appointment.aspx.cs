@@ -116,10 +116,7 @@ namespace Assignment3.Patient
             catch(Exception exd)
             {
 
-            }
-            
-
-            
+            }               
         }
     }
 }

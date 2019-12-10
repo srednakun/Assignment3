@@ -34,6 +34,7 @@ namespace Assignment3.Patient
                            where patientEmail.Trim() == msg.MessageFROM.Trim()                         
                            select new
                            {
+                               msg.MessageId,
                                msg.MessageTO,
                                msg.MessageFROM,
                                msg.Date,
@@ -56,6 +57,7 @@ namespace Assignment3.Patient
                            where patientEmail.Trim() == msg.MessageTO.Trim()
                            select new
                            {
+                            msg.MessageId,
                             msg.MessageTO,
                             msg.MessageFROM,
                             msg.Date,
@@ -114,7 +116,7 @@ namespace Assignment3.Patient
                 notificationLbl.Visible = true;
                 notificationLbl.ForeColor = System.Drawing.Color.Green;
                 notificationLbl.Text = "Your Message has been sent.";
-
+                RefreshPage();
             }
             catch (Exception error)
             {
@@ -127,6 +129,42 @@ namespace Assignment3.Patient
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
          
+        }
+
+        //sent messages table
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DeleteRecord(GridView2);
+        }
+        public void DeleteRecord(GridView grid)
+        {
+            try
+            {
+                GridViewRow row = grid.SelectedRow;
+                string msgId = row.Cells[1].Text;
+                ListBox1.Items.Add(msgId);
+
+                dbcon.MessageTables.Load();
+                var item = from user in dbcon.MessageTables.Local
+                           where msgId.Trim() == user.MessageId.ToString().Trim()
+                           select user;
+                dbcon.MessageTables.Local.Remove(item.First());
+                dbcon.SaveChanges();
+                RefreshPage();
+            }
+            catch (Exception error)
+            {
+
+            }
+        }
+        public void RefreshPage()
+        {
+            Page.Response.Redirect(Page.Request.Url.ToString(), true);
+        }
+        //view messages table
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DeleteRecord(GridView1);
         }
     }
 }
