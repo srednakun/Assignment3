@@ -9,6 +9,19 @@ namespace Assignment3.Helpers
 	//Methods that helps out with getting doctor info
 	public class DoctorHandler 
 	{
+
+		//get doctor email from last name
+		public static string GetDocEmail(string lastName)
+		{
+			HospitalEntities1 dbcon = new HospitalEntities1();
+			dbcon.DoctorsTables.Load();
+			var doctor = dbcon.DoctorsTables.Local
+						 .Where(user => lastName.Trim() == user.LastName.Trim())
+						 .Select(user => user.Email).First();
+
+			return doctor.ToString();
+		}
+
 		//Get doctor full name from username
 		public static string GetDoctorFullName(string username)
 		{

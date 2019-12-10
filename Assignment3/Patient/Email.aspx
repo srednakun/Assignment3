@@ -137,6 +137,22 @@
             font-size: large;
             color: #00CC00;
         }
+        .auto-style38 {
+            width: 1133px;
+            font-size: large;
+            color: #000000;
+            height: 72px;
+        }
+        .auto-style39 {
+            width: 1207px;
+            font-size: x-large;
+            color: #000000;
+            height: 72px;
+        }
+        .auto-style40 {
+            font-size: x-large;
+            height: 72px;
+        }
     </style>
 </head>
 <body>
@@ -168,8 +184,7 @@
                         <asp:Label ID="docLbl" runat="server" Text="Label"></asp:Label>
                     </td>
                     <td class="auto-style15">
-                        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style5"></td>
                 </tr>
                 <tr>
@@ -186,56 +201,52 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:GridView ID="GridView1" runat="server" CellPadding="4" CssClass="auto-style34" ForeColor="#333333" GridLines="None" Height="85px" Width="619px">
-                            <AlternatingRowStyle BackColor="White" />
+                        <asp:GridView ID="GridView1" runat="server" CellPadding="3" CssClass="auto-style34" GridLines="None" Height="85px" Width="619px" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1">
                             <Columns>
-                                <asp:CommandField ShowDeleteButton="True" />
+                                <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
                             </Columns>
-                            <EditRowStyle BackColor="#7C6F57" />
-                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#E3EAEB" />
-                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                            <SortedAscendingHeaderStyle BackColor="#246B61" />
-                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                            <SortedDescendingHeaderStyle BackColor="#15524A" />
+                            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+                            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+                            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#33276A" />
                         </asp:GridView>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                     </td>
                     <td class="auto-style14">
-                        <asp:GridView ID="GridView2" runat="server" CellPadding="4" CssClass="auto-style34" ForeColor="#333333" GridLines="None" Height="85px" Width="619px">
-                            <AlternatingRowStyle BackColor="White" />
+                        <asp:GridView ID="GridView2" runat="server" CellPadding="3" CssClass="auto-style34" GridLines="None" Height="85px" Width="619px" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1">
                             <Columns>
-                                <asp:CommandField ShowDeleteButton="True" />
+                                <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
                             </Columns>
-                            <EditRowStyle BackColor="#7C6F57" />
-                            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#E3EAEB" />
-                            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
-                            <SortedAscendingCellStyle BackColor="#F8FAFA" />
-                            <SortedAscendingHeaderStyle BackColor="#246B61" />
-                            <SortedDescendingCellStyle BackColor="#D4DFE1" />
-                            <SortedDescendingHeaderStyle BackColor="#15524A" />
+                            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+                            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+                            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#33276A" />
                         </asp:GridView>
                     </td>
                     <td class="auto-style5"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">&nbsp;</td>
-                    <td class="auto-style14">&nbsp;</td>
-                    <td class="auto-style5">&nbsp;</td>
+                    <td class="auto-style38"></td>
+                    <td class="auto-style39"></td>
+                    <td class="auto-style40"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style30"><strong><span class="auto-style31">Send message to your Doctor</span></strong></td>
+                    <td class="auto-style30"><span class="auto-style31"><strong>Send a message</strong></span></td>
                     <td class="auto-style25">&nbsp;</td>
                     <td class="auto-style26">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style24"><strong></strong></td>
+                    <td class="auto-style24">&nbsp;</td>
                     <td class="auto-style32"></td>
                     <td class="auto-style33"><strong></strong></td>
                 </tr>
@@ -248,8 +259,13 @@
                 </tr>
                 <tr>
                     <td class="auto-style10"><strong><span class="auto-style3">To</span></strong><span class="auto-style3">:
-                        <asp:Label ID="toLbl" runat="server" Text="Doctor"></asp:Label>
-                        </span></td>
+                        </span>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [LastName] FROM [DoctorsTable]"></asp:SqlDataSource>
+                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource4" DataTextField="LastName" DataValueField="LastName" Height="51px" ViewStateMode="Enabled" Width="424px">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [LastName] FROM [DoctorsTable]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [FirstName], [LastName], [Email] FROM [DoctorsTable]"></asp:SqlDataSource>
+                    </td>
                     <td class="auto-style11">&nbsp;</td>
                     <td class="auto-style12"></td>
                 </tr>
@@ -269,9 +285,7 @@
                     <td class="auto-style8">
                         <asp:TextBox ID="msgTxtBox" runat="server" CssClass="auto-style3" Height="286px" Width="375px"></asp:TextBox>
                     </td>
-                    <td class="auto-style1"><strong>
-                        <asp:Label ID="notificationLbl" runat="server" Text="Notification" CssClass="auto-style5"></asp:Label>
-                        </strong></td>
+                    <td class="auto-style1">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
@@ -279,7 +293,9 @@
                         <asp:Button ID="sendMsgBtn" runat="server" CssClass="auto-style4" Text="Send Message" Width="384px" OnClick="sendMsgBtn_Click" />
                     </td>
                     <td class="auto-style1">
-                        &nbsp;</td>
+                        <strong>
+                        <asp:Label ID="notificationLbl" runat="server" Text="Notification" CssClass="auto-style5"></asp:Label>
+                        </strong></td>
                     <td>&nbsp;</td>
                 </tr>
             </table>

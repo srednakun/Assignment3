@@ -17,33 +17,43 @@ namespace Assignment3.Patient
             notificationLbl.Visible = false;
             FillMessageTable();
             noNewMsgLbl.Visible = false;
+            FillSentMessageTable();
 
         }
         HospitalEntities1 dbcon = new HospitalEntities1();
         DateTime currentDate = DateTime.Now;
         //get patient username
         string username = System.Web.HttpContext.Current.User.Identity.Name;
-
-        public void FillMessageTable()
+        
+        public void FillSentMessageTable()
         {
-            int docId = Helpers.PatientHandler.getPatientDocId(username);
-            dbcon.DoctorsTables.Load();
-            dbcon.PatientTables.Load();
-
-            var docEmail = (from user in dbcon.DoctorsTables.Local
-                           where docId == user.DoctorsId
-                           select user.Email).First();
-            //ListBox1.Items.Add("Doc email: " + docEmail);
-
-            var patientEmail = (from user in dbcon.PatientTables.Local
-                               where username == user.UserLoginName.Trim()
-                               select user.Email).First();
-            //ListBox1.Items.Add("Patient email: " + patientEmail);
+            string patientEmail = Helpers.PatientHandler.GetPatientEmail(username);
 
             dbcon.MessageTables.Load();
             var messages = from msg in dbcon.MessageTables.Local
-                           where docEmail.Trim() == msg.MessageFROM.Trim() &&
-                           patientEmail.Trim() == msg.MessageTO.Trim()
+                           where patientEmail.Trim() == msg.MessageFROM.Trim()                         
+                           select new
+                           {
+                               msg.MessageTO,
+                               msg.MessageFROM,
+                               msg.Date,
+                               msg.Message
+
+                           };
+
+            if (messages.Count() > 0)
+            {
+                GridView2.DataSource = messages;
+                GridView2.DataBind();
+            }
+        }
+
+        public void FillMessageTable()
+        {
+            string patientEmail = Helpers.PatientHandler.GetPatientEmail(username);
+            dbcon.MessageTables.Load();
+            var messages = from msg in dbcon.MessageTables.Local
+                           where patientEmail.Trim() == msg.MessageTO.Trim()
                            select new
                            {
                             msg.MessageTO,
@@ -53,7 +63,6 @@ namespace Assignment3.Patient
 
                            };
 
-            //ListBox1.Items.Add("count: " + messages.Count());
             if(messages.Count() > 0)
             {
                 GridView1.DataSource = messages;
@@ -62,8 +71,6 @@ namespace Assignment3.Patient
             else
             {
                 noNewMsgLbl.Text = "No new messages in your inbox.";
-                
-
             }
         }
 
@@ -79,12 +86,10 @@ namespace Assignment3.Patient
 
             //display patient's full doctor name 
             docLbl.Text = Helpers.DoctorHandler.GetDoctorFullName(docId);
-            toLbl.Text = Helpers.DoctorHandler.GetDocEmail(docId);
 
             //display the current date
             dateLbl.Text = currentDate.ToShortDateString();
         }
-
 
         //Save patient message to message table
         protected void sendMsgBtn_Click(object sender, EventArgs e)
@@ -92,8 +97,10 @@ namespace Assignment3.Patient
             try
             {
                 string patientMsg = msgTxtBox.Text;
-                string msgTo = toLbl.Text;
                 string msgFrom = fromLbl.Text;
+                string docLastName = DropDownList1.SelectedValue;
+                string docEmail = Helpers.DoctorHandler.GetDocEmail(docLastName);
+                string msgTo = docEmail;
 
                 MessageTable message = new MessageTable();
                 message.MessageTO = msgTo;
@@ -108,7 +115,6 @@ namespace Assignment3.Patient
                 notificationLbl.ForeColor = System.Drawing.Color.Green;
                 notificationLbl.Text = "Your Message has been sent.";
 
-                msgTxtBox.Text = "";
             }
             catch (Exception error)
             {
@@ -116,6 +122,11 @@ namespace Assignment3.Patient
                 notificationLbl.ForeColor = System.Drawing.Color.Red;
                 notificationLbl.Text = "Something went wrong! Please enter in all information.";
             }
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+         
         }
     }
 }
