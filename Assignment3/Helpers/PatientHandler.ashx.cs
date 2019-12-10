@@ -44,6 +44,16 @@ namespace Assignment3.Helpers
 			return patientId;
 		}
 
+		public static string GetPatientEmail(string username)
+		{
+			HospitalEntities1 dbcon = new HospitalEntities1();
+			dbcon.PatientTables.Load();
+			string patientEmail = (from user in dbcon.PatientTables.Local
+							 where username == user.UserLoginName.Trim()
+							 select user.Email).First();
+
+			return patientEmail;
+		}
 		public static string getPatientUsername()
 		{
 			return System.Web.HttpContext.Current.User.Identity.Name;
