@@ -176,9 +176,7 @@
                     <td class="auto-style19"><strong>Patient Name:</strong>
                         <asp:Label ID="patientNameLbl" runat="server" Text="Label"></asp:Label>
                     </td>
-                    <td class="auto-style18">
-                        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
-                    </td>
+                    <td class="auto-style18">&nbsp;</td>
                     <td class="auto-style20"></td>
                 </tr>
                 <tr>

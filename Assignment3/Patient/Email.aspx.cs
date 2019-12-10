@@ -142,8 +142,7 @@ namespace Assignment3.Patient
             {
                 GridViewRow row = grid.SelectedRow;
                 string msgId = row.Cells[1].Text;
-                ListBox1.Items.Add(msgId);
-
+         
                 dbcon.MessageTables.Load();
                 var item = from user in dbcon.MessageTables.Local
                            where msgId.Trim() == user.MessageId.ToString().Trim()
