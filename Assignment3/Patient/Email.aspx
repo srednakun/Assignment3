@@ -201,7 +201,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:GridView ID="GridView1" runat="server" CellPadding="3" CssClass="auto-style34" GridLines="None" Height="85px" Width="619px" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1">
+                        <asp:GridView ID="GridView1" runat="server" CellPadding="3" CssClass="auto-style34" GridLines="None" Height="85px" Width="619px" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                             <Columns>
                                 <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
                             </Columns>
@@ -218,7 +218,7 @@
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                     </td>
                     <td class="auto-style14">
-                        <asp:GridView ID="GridView2" runat="server" CellPadding="3" CssClass="auto-style34" GridLines="None" Height="85px" Width="619px" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1">
+                        <asp:GridView ID="GridView2" runat="server" CellPadding="3" CssClass="auto-style34" GridLines="None" Height="85px" Width="619px" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellSpacing="1" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
                             <Columns>
                                 <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
                             </Columns>
