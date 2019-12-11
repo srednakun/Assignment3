@@ -5,21 +5,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            font-size: x-large;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/Appointment.aspx">Appointments</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/Appointment.aspx" CssClass="auto-style1">Appointments</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;
-            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Patient/Email.aspx">Email</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Patient/Email.aspx" CssClass="auto-style1">Email</asp:HyperLink>
 &nbsp;&nbsp;&nbsp;
+            <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="auto-style1" LogoutAction="Redirect" LogoutPageUrl="~/Home.aspx" />
             <br />
         </p>
         <p>
-            <asp:LoginName ID="LoginName1" runat="server" />
+            Currently logged in as:&nbsp; <asp:LoginName ID="LoginName1" runat="server" />
         </p>
         <p>
-            &nbsp;</p>
+            Patient Name:&nbsp;
+            <asp:Label ID="patientNameLbl" runat="server" Text="Label"></asp:Label>
+        </p>
+        <p>
+            Doctor Name:&nbsp;
+            <asp:Label ID="docNameLbl" runat="server" Text="Label"></asp:Label>
+        </p>
         <p>
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="My Medication List" />
         </p>

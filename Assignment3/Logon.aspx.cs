@@ -20,6 +20,7 @@ namespace Assignment3
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
+            Label1.Visible = false;
         }
 
 

@@ -25,16 +25,23 @@
 <body>
     <form id="form1" runat="server">
         <p>
-            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+            <asp:HyperLink ID="homeLink" runat="server" CssClass="auto-style4" NavigateUrl="~/Patient/PatentHome.aspx">Home</asp:HyperLink>
+&nbsp;&nbsp;
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/Appointment.aspx" CssClass="auto-style4">Appointments</asp:HyperLink>
+        &nbsp;&nbsp;
+            <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="auto-style4" LogoutAction="Redirect" LogoutPageUrl="~/Home.aspx" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <br />
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/Appointment.aspx">Appointments</asp:HyperLink>
         </p>
         <p>
             &nbsp;</p>
     <p>
         <span class="auto-style4">Hello,</span>
         <asp:Label ID="Label1" runat="server" CssClass="auto-style3" Text="Label"></asp:Label>
+    </p>
+        <p>
+            Your Doctor:
+            <asp:Label ID="docLbl" runat="server" Text="Label"></asp:Label>
         <br />
     </p>
     <p>

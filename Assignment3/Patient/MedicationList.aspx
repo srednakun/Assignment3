@@ -5,11 +5,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            font-size: x-large;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <p>
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/PatentHome.aspx">Home</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Patient/PatentHome.aspx" CssClass="auto-style1">Home</asp:HyperLink>
             <br />
         </p>
         <p>

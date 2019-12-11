@@ -26,19 +26,30 @@
             color: #0099FF;
             font-size: x-large;
         }
+        .auto-style7 {
+            text-align: left;
+        }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
     <p>
-        <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="auto-style1" />
+        <asp:HyperLink ID="homeLink" runat="server" CssClass="auto-style1" NavigateUrl="~/Patient/PatentHome.aspx">Home</asp:HyperLink>
+&nbsp;&nbsp;&nbsp;
+        <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="auto-style1" LogoutPageUrl="~/Home.aspx" LogoutAction="Redirect" />
         <br />
     </p>
         <p>
-            &nbsp;</p>
-    <p class="auto-style2">
+            You are logged in as:
+            <asp:LoginName ID="LoginName1" runat="server" />
+        </p>
+    <p class="auto-style7">
         <span class="auto-style4">Hello</span>,<span class="auto-style3"> </span>
-        <asp:Label ID="Label1" runat="server" CssClass="auto-style3" Text="Label"></asp:Label>
+        <asp:Label ID="patientNameLbl" runat="server" CssClass="auto-style3" Text="patient name label"></asp:Label>
+        </p>
+        <p class="auto-style7">
+            Your Doctor:
+            <asp:Label ID="docLbl" runat="server" Text="doc label"></asp:Label>
         </p>
     <p>
         Current Appointments:</p>

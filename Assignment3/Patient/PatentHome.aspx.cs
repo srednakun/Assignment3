@@ -13,11 +13,18 @@ namespace Assignment3.Patient
         HospitalEntities1 dbcon = new HospitalEntities1();
         protected void Page_Load(object sender, EventArgs e)
         {
+            FillLabels();
+            Label1.Visible = false;
 
-         
-            
         }
+        public void FillLabels()
+        {
+            string username = Helpers.PatientHandler.getPatientUsername();
+            patientNameLbl.Text = Helpers.PatientHandler.GetPatientFullName(username);
+            int docId = Helpers.PatientHandler.getPatientDocId(username);
+            docNameLbl.Text = Helpers.DoctorHandler.GetDoctorFullName(docId);
 
+        }
         protected void Button2_Click(object sender, EventArgs e)
         {
             dbcon.TestTables.Load();

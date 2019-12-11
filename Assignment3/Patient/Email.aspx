@@ -162,7 +162,7 @@
             <br />
             <asp:HyperLink ID="HyperLink1" runat="server" CssClass="auto-style5" NavigateUrl="~/Patient/PatentHome.aspx">Home</asp:HyperLink>
 &nbsp;&nbsp; <span class="auto-style5">&nbsp;&nbsp; </span>
-            <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="auto-style5" />
+            <asp:LoginStatus ID="LoginStatus1" runat="server" CssClass="auto-style5" LogoutAction="Redirect" LogoutPageUrl="~/Home.aspx" />
             <br />
             <table style="width: 100%; height: 353px;">
                 <tr>

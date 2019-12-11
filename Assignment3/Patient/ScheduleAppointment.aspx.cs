@@ -18,6 +18,9 @@ namespace Assignment3.Patient
             NotificationLabel.Visible = false;
             AppointmentErrMsg.Visible = false;
             getSelectedTime();
+            string username = Helpers.PatientHandler.getPatientUsername();
+            int docId = Helpers.PatientHandler.getPatientDocId(username);
+            docLbl.Text = Helpers.DoctorHandler.GetDoctorFullName(docId);
            
 
             
