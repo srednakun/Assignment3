@@ -83,6 +83,7 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="Doctor\DoctorAppt.aspx" />
     <Content Include="Doctor\DoctorEmail.aspx" />
     <Content Include="Doctor\DoctorHome.aspx" />
     <Content Include="Home.aspx" />
@@ -124,6 +125,13 @@
     </Compile>
     <Compile Include="DoctorsTable.cs">
       <DependentUpon>HospitalModel1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorAppt.aspx.cs">
+      <DependentUpon>DoctorAppt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorAppt.aspx.designer.cs">
+      <DependentUpon>DoctorAppt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Doctor\DoctorEmail.aspx.cs">
       <DependentUpon>DoctorEmail.aspx</DependentUpon>
