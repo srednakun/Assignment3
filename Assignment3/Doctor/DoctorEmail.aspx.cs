@@ -17,6 +17,7 @@ namespace Assignment3.Doctor
 		{
 			FillLabels();
 			FillMessageTable();
+			notificationLbl.Visible = false;
 		}
 		public void FillLabels()
 		{
@@ -56,10 +57,16 @@ namespace Assignment3.Doctor
 			try
 			{
 				string docMsg = msgTxtBox.Text;
+				ListBox1.Items.Add("docMsg: " + docMsg);
 				string msgFrom = fromEmail.Text;
 				string patientLastName = patientDrop.SelectedValue;
 				string patientEmail = Helpers.PatientHandler.GetEmailByLastName(patientLastName);
 				string msgTo = patientEmail;
+
+				
+				ListBox1.Items.Add("msg from: " + msgFrom);
+				ListBox1.Items.Add("p last name: " + patientLastName);
+				ListBox1.Items.Add("msg to: " + msgTo);
 
 				MessageTable message = new MessageTable();
 				message.MessageTO = msgTo;
@@ -70,16 +77,18 @@ namespace Assignment3.Doctor
 				dbcon.MessageTables.Add(message);
 
 				dbcon.SaveChanges();
+				RefreshPage();
+
 				notificationLbl.Visible = true;
 				notificationLbl.ForeColor = System.Drawing.Color.Green;
 				notificationLbl.Text = "Your Message has been sent.";
-				RefreshPage();
 			}
 			catch (Exception error)
 			{
 				notificationLbl.Visible = true;
 				notificationLbl.ForeColor = System.Drawing.Color.Red;
 				notificationLbl.Text = "Something went wrong! Please enter in all information.";
+				notificationLbl.Text = error.Message;
 			}
 		}
 

@@ -192,7 +192,9 @@
                 </tr>
                 <tr>
                     <td class="auto-style24"><strong></strong></td>
-                    <td class="auto-style32"></td>
+                    <td class="auto-style32">
+                        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
+                    </td>
                     <td class="auto-style33"><strong></strong></td>
                 </tr>
                 <tr>
