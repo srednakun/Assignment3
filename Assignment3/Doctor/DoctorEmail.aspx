@@ -157,7 +157,10 @@
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None">
+                        <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                            <Columns>
+                                <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
+                            </Columns>
                             <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
                             <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
                             <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
@@ -171,7 +174,10 @@
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                     </td>
                     <td class="auto-style14">
-                        <asp:GridView ID="GridView2" runat="server" CssClass="auto-style3" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None">
+                        <asp:GridView ID="GridView2" runat="server" CssClass="auto-style3" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+                            <Columns>
+                                <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
+                            </Columns>
                             <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
                             <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
                             <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
@@ -186,15 +192,14 @@
                     <td class="auto-style5"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style30"><strong><span class="auto-style31"><span class="auto-style3">Send message to your Patient</span></span></strong></td>
+                    <td class="auto-style30">&nbsp;</td>
                     <td class="auto-style25">&nbsp;</td>
                     <td class="auto-style26">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style24"><strong></strong></td>
+                    <td class="auto-style24"><strong><span class="auto-style31"><span class="auto-style3">Send message to your Patient</span></span></strong></td>
                     <td class="auto-style32">
-                        <asp:ListBox ID="ListBox1" runat="server"></asp:ListBox>
-                    </td>
+                        &nbsp;</td>
                     <td class="auto-style33"><strong></strong></td>
                 </tr>
                 <tr>

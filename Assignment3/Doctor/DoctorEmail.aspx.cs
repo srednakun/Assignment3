@@ -17,7 +17,9 @@ namespace Assignment3.Doctor
 		{
 			FillLabels();
 			FillMessageTable();
+			FillSentMessageTable();
 			notificationLbl.Visible = false;
+		
 		}
 		public void FillLabels()
 		{
@@ -52,21 +54,45 @@ namespace Assignment3.Doctor
 				GridView1.DataBind();
 			}
 		}
+
+		public void FillSentMessageTable()
+		{
+			int docId = Helpers.DoctorHandler.GetDocId(docUsername);
+			string docEmail = Helpers.DoctorHandler.GetDocEmail(docId);
+
+			dbcon.MessageTables.Load();
+			var messages = from msg in dbcon.MessageTables.Local
+						   where docEmail.Trim() == msg.MessageFROM.Trim()
+						   select new
+						   {
+							   msg.MessageId,
+							   msg.MessageTO,
+							   msg.MessageFROM,
+							   msg.Date,
+							   msg.Message
+
+						   };
+
+			if (messages.Count() > 0)
+			{
+				GridView2.DataSource = messages;
+				GridView2.DataBind();
+			}
+		}
 		protected void sendMsgBtn_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				string docMsg = msgTxtBox.Text;
-				ListBox1.Items.Add("docMsg: " + docMsg);
+				//ListBox1.Items.Add("docMsg: " + docMsg);
 				string msgFrom = fromEmail.Text;
+				//ListBox1.Items.Add("msg from: " + msgFrom);
 				string patientLastName = patientDrop.SelectedValue;
+				//ListBox1.Items.Add("p last name: " + patientLastName);
 				string patientEmail = Helpers.PatientHandler.GetEmailByLastName(patientLastName);
+				//ListBox1.Items.Add("p email: " + patientEmail);
 				string msgTo = patientEmail;
-
-				
-				ListBox1.Items.Add("msg from: " + msgFrom);
-				ListBox1.Items.Add("p last name: " + patientLastName);
-				ListBox1.Items.Add("msg to: " + msgTo);
+				//ListBox1.Items.Add("msg to: " + msgTo);
 
 				MessageTable message = new MessageTable();
 				message.MessageTO = msgTo;
@@ -91,10 +117,40 @@ namespace Assignment3.Doctor
 				notificationLbl.Text = error.Message;
 			}
 		}
+		public void DeleteRecord(GridView grid)
+		{
+			try
+			{
+				GridViewRow row = grid.SelectedRow;
+				string msgId = row.Cells[1].Text;
+
+				dbcon.MessageTables.Load();
+				var item = from user in dbcon.MessageTables.Local
+						   where msgId.Trim() == user.MessageId.ToString().Trim()
+						   select user;
+				dbcon.MessageTables.Local.Remove(item.First());
+				dbcon.SaveChanges();
+				RefreshPage();
+			}
+			catch (Exception error)
+			{
+
+			}
+		}
 
 		public void RefreshPage()
 		{
 			Page.Response.Redirect(Page.Request.Url.ToString(), true);
+		}
+
+		protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			DeleteRecord(GridView1);
+		}
+
+		protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			DeleteRecord(GridView2);
 		}
 	}
 }

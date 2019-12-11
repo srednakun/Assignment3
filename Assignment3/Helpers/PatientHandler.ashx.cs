@@ -60,7 +60,7 @@ namespace Assignment3.Helpers
 			HospitalEntities1 dbcon = new HospitalEntities1();
 			dbcon.PatientTables.Load();
 			string patientEmail = (from user in dbcon.PatientTables.Local
-								   where lastName == user.LastName.Trim()
+								   where lastName.Trim() == user.LastName.Trim()
 								   select user.Email).First();
 
 			return patientEmail;
