@@ -58,7 +58,7 @@
         .auto-style15 {
             width: 1207px;
             font-size: large;
-            color: #000000;
+            color: #3399FF;
         }
         .auto-style18 {
             width: 1207px;
@@ -119,6 +119,11 @@
         .auto-style33 {
             height: 3px;
         }
+        .auto-style34 {
+            width: 812px;
+            font-size: large;
+            color: #3399FF;
+        }
     </style>
 </head>
 <body>
@@ -146,42 +151,69 @@
                     <td class="auto-style20"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style9">View your messages</td>
-                    <td class="auto-style15">View your sent messages</td>
+                    <td class="auto-style34"><strong>View your messages</strong></td>
+                    <td class="auto-style15"><strong>View your sent messages</strong></td>
                     <td class="auto-style5"></td>
                 </tr>
                 <tr>
                     <td class="auto-style9">
-                        <asp:GridView ID="GridView1" runat="server">
+                        <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                            <Columns>
+                                <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
+                            </Columns>
+                            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+                            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+                            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#33276A" />
                         </asp:GridView>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                     </td>
                     <td class="auto-style14">
-                        <asp:GridView ID="GridView2" runat="server" CssClass="auto-style3">
+                        <asp:GridView ID="GridView2" runat="server" CssClass="auto-style3" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+                            <Columns>
+                                <asp:CommandField SelectText="Delete" ShowSelectButton="True" />
+                            </Columns>
+                            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
+                            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
+                            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                            <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                            <SortedDescendingHeaderStyle BackColor="#33276A" />
                         </asp:GridView>
                     </td>
                     <td class="auto-style5"></td>
                 </tr>
                 <tr>
-                    <td class="auto-style30"><strong><span class="auto-style31">Send message to your Patient</span></strong></td>
+                    <td class="auto-style30">&nbsp;</td>
                     <td class="auto-style25">&nbsp;</td>
-                    <td class="auto-style26"><strong></strong></td>
+                    <td class="auto-style26">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td class="auto-style24"><strong></strong></td>
-                    <td class="auto-style32"></td>
+                    <td class="auto-style24"><strong><span class="auto-style31"><span class="auto-style3">Send message to your Patient</span></span></strong></td>
+                    <td class="auto-style32">
+                        &nbsp;</td>
                     <td class="auto-style33"><strong></strong></td>
                 </tr>
                 <tr>
                     <td class="auto-style8"><strong>From: </strong>
-                        <asp:Label ID="fromDocNameLbl" runat="server" Text="Doctor Name"></asp:Label>
+                        <asp:Label ID="fromEmail" runat="server" Text="Doctor email"></asp:Label>
                     </td>
                     <td class="auto-style1">&nbsp;</td>
                     <td>&nbsp;</td>
                 </tr>
                 <tr>
                     <td class="auto-style10"><strong><span class="auto-style3">To</span></strong><span class="auto-style3">:&nbsp;
-                        <asp:Label ID="toPatientLbl" runat="server" Text="Patient"></asp:Label>
+                        <asp:DropDownList ID="patientDrop" runat="server" DataSourceID="SqlDataSource2" DataTextField="LastName" DataValueField="LastName">
+                        </asp:DropDownList>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [LastName], [FirstName] FROM [PatientTable]"></asp:SqlDataSource>
                         </span></td>
                     <td class="auto-style11">&nbsp;</td>
                     <td class="auto-style12"></td>

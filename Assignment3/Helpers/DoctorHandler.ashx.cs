@@ -51,10 +51,10 @@ namespace Assignment3.Helpers
 			HospitalEntities1 dbcon = new HospitalEntities1();
 			dbcon.DoctorsTables.Load();
 				
-			int docId =  dbcon.DoctorsTables.Local
-						.Where(user => username == user.UserLoginName)
-						.Select(user => user.DoctorsId).First();
-			
+			int docId = (from user in dbcon.DoctorsTables.Local
+						 where username == user.UserLoginName.Trim()
+						 select user.DoctorsId).First();
+
 			return docId;
 		}
 
